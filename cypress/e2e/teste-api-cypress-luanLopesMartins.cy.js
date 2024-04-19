@@ -15,6 +15,7 @@ describe('Criação de usuário', () => {
   let accessToken;
   let token;
   let id;
+
   describe('testes de Bad requests', () => {
     ///////////////////°NÃO CONSEGUIR CADASTRAR°//////////////////////
     it('Deve receber bad request ao tentar cadastrar um usuário sem email', () => {
@@ -28,6 +29,7 @@ describe('Criação de usuário', () => {
         failOnStatusCode: false
       })
     })
+    // alterações
     it('Deve receber bad request ao tentar cadastrar um usuário sem nome', () => {
       cy.request({
         method: 'Post',
@@ -112,10 +114,10 @@ describe('Criação de usuário', () => {
   })
   ///////////////////////°LISTAR, CONSULTAR USUARIO E ADMIN°///////////////////////////
   describe('Listar, Consultar e tornar administrador', () => {
-    it('Deve encontrar usuário criado pelo id', () => {
+    it.only('Deve encontrar usuário criado pelo id', () => {
       cy.request({
         method: 'GET',
-        url: '/users',
+        url: '/users/' + id,
         body: {
           number: id,
         },
