@@ -11,10 +11,17 @@ module.exports = defineConfig({
     Type: 1, //administrador
     //alterações
   },
+
+  retries: {
+    openMode: 2,
+    runMode: 1,
+  },
   
   e2e: {
     baseUrl: 'https://raromdb-3c39614e42d4.herokuapp.com/api',
+    supportFile: 'cypress/support/commands.js',
     setupNodeEvents(on, config) {
+      
       // implement node event listeners here
     },
   },
